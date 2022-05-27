@@ -1,0 +1,85 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+.userImg{
+    width: 60px;
+    height: 60px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+/* .list-group-item{
+    color: teal !important;
+    border-color: teal !important;
+    background-color: rgb(187, 187, 187); */
+/* } */
+.list-group{
+    padding: 0px;
+}
+
+.list-group-item a{
+    color: teal !important;
+}
+a{
+    text-decoration: none;
+    color: teal !important;
+}
+.emp_heading{
+    text-align: center;
+    border-top: 2px solid teal;
+    border-bottom: 2px solid teal;
+    padding: 8px 0px;
+}
+.active{
+    background-color: teal !important;
+    color: white !important;
+    border: none;
+}
+
+
+
+
+/* profile_div */
+.profile{
+    color: teal;
+    border-bottom: 2px solid teal;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+form {
+    width: 100%;
+}
+.profile_div{
+    margin-bottom: 15px;
+    width: 100%;
+}
+.profile_div label{
+    font-size: 16px;
+}
+.profile_div input{
+    width: 100%;
+    padding: 3px 10px;
+    /* border-radius: 5px; */
+    margin-top: -10px;
+}
+.profile_submit_btn{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid teal;
+    padding: 5px 20px;
+    border-radius: 10px;
+    background-color: teal;
+}
+.profile_submit_btn input{
+    background: none;
+    border: none;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+}

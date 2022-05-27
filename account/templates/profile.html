@@ -1,0 +1,59 @@
+{% extends 'emp_base.html' %}
+{% load static %}
+
+
+{% block main %}
+
+<h5 class="profile">Profile</h5>
+
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="row">
+    <div class="col-sm-6 profile_div">
+        <label for="">First name</label><br>
+        <input type="text" name="fname" value="{{ detail.user.first_name }}">
+    </div>
+    <div class="col-sm-6 profile_div">
+        <label for="">Last name</label><br>
+        <input type="text" name="lname" value="{{ detail.user.last_name }}">
+    </div>
+    <div class="col-sm-12 profile_div">
+        <label for="">Employee code</label><br>
+        <input type="text" name="e_code">
+    </div>
+    <div class="col-sm-12 profile_div">
+        <label for="">Employee Department</label><br>
+        <input type="text" name="e_dept">
+    </div>
+    <div class="col-sm-6 profile_div">
+        <label for="">Employee Designation</label><br>
+        <input type="text" name="e_desg">
+    </div>
+    <div class="col-sm-6 profile_div">
+        <label for="">Contact</label><br>
+        <input type="text" name="e_contact">
+    </div>
+    <div class="col-sm-6 profile_div">
+        <label for="">Email id</label><br>
+        <input type="email" name="e_email" value="{{ detail.user.email }}">
+    </div>
+    <div class="col-sm-6 profile_div">
+        <label for="">Joining Date</label><br>
+        <input type="date" name="j_date">
+    </div>
+    <div class="col-sm-6 profile_div">
+        <label for="">Gender</label><br>
+        <select name="" id="" name="e_gender">
+            <option value="Male">Male</option>
+            <option value="female">Female</option>
+
+        </select>
+    </div>
+
+    <div class="profile_submit_btn">
+        <input type="submit" value="Submit">
+    </div>
+    </div>
+</form>
+
+{% endblock %}

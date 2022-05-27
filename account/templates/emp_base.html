@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+    integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+  <link rel="stylesheet" href="../static/css/emp_base.css">
+
+  <title>EmpBase</title>
+</head>
+
+<body>
+
+  <div class="cintainer-fluide">
+    <div class="row">
+      <div class="col-md-2 p-0">
+        <div class="userImg">
+          <img src="" alt="">
+        </div>
+        <div class="list-group">
+          <a href="{% url 'emp_base' %}" class="list-group-item list-group-item-info {% if request.path == '/emp/' %} active {% endif %}">Dashboard</a>
+          <a href="{% url 'user_profile' %}" class="list-group-item list-group-item-info {% if request.path == '/profile/' %} active {% endif %}">Profile</a>
+          <a href="" class="list-group-item list-group-item-info">My Experiance</a>
+          <a href="" class="list-group-item list-group-item-info">Edit Experiance</a>
+          <a href="" class="list-group-item list-group-item-info">Education</a>
+          <a href="" class="list-group-item list-group-item-info">Change Password</a>
+          <a href="{% url 'logout' %}" class="list-group-item list-group-item-info">Logout</a>
+        </div>
+      </div>
+
+      <div class="col-sm-10 p-2">
+        <div class="container-fluide p-2">
+          <h5 class="emp_heading">heading</h5>
+        </div>
+        <div class="card shadow" style="width: 99%; height: max-content;">
+          <div class="card-body">
+
+            {% block main %}
+
+            {% endblock %}
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

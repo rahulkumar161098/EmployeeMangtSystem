@@ -1,0 +1,17 @@
+.nav{
+    background-color: teal;
+    color: white !important;
+}
+
+.navbar-brand{
+    color: white !important;
+}
+.nav-link{
+    color: white !important;
+}
+.logout{
+    text-align: right;
+}
+.collapsibleNavbar{
+    color: white !important;
+}

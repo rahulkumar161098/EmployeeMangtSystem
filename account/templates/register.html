@@ -1,0 +1,47 @@
+{% load static %}
+
+{% include 'header.html' %}
+<link rel="stylesheet" href="../static/css/register.css">
+
+<div class="contain">
+    <form action="" method="post" onsubmit="return onSubmitForm()">
+        {% csrf_token %}
+        <h3>Sign Up</h3>
+        <div class="user_field">
+            <label for="name">First name</label>
+            <input type="text" name="fname" class="user_input" id="user_name">
+            <span id="username_error"></span>
+        </div>
+        <div class="user_field">
+            <label for="name">Last name</label>
+            <input type="text" name="lname" class="user_input" id="user_name">
+            <span id="username_error"></span>
+        </div>
+        <!-- <div class="user_field">
+            <label for="name">User name</label>
+            <input type="text" class="user_input" id="user_name">
+            <span id="username_error"></span>
+        </div> -->
+        <div class="user_field">
+            <label for="name">Email</label>
+            <input type="email" name="email" class="user_input" id="user_email">
+            <span id="email_error"></span>
+        </div>
+        <!-- <div class="user_field">
+            <label for="name">Mobile</label>
+            <input type="text" class="user_input" id="user_mobile">
+            <span id="mobile_error"></span>
+        </div> -->
+        <div class="user_field">
+            <label for="name">Password</label>
+            <input type="password" name="password" class="user_input" id="user_password">
+            <span id="password_error"></span>
+        </div>
+        <div class="some_link">
+            <a href="{% url 'login_page' %}">already have account</a>
+        </div>
+        <div class="btn">
+            <input type="submit" class="submit_btn" value="Register">
+        </div>
+    </form>
+</div>

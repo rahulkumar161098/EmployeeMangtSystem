@@ -1,0 +1,28 @@
+{% load static %}
+
+{% include 'header.html' %}
+<link rel="stylesheet" href="../static/css/login.css">
+
+<div class="contain">
+    <form action="" method="post" onsubmit="return onSubmitForm()">
+        {% csrf_token %}
+        <h3>Sign In</h3>
+        <div class="user_field">
+            <label for="name">User name</label>
+            <input type="text" name="username" class="user_input" id="user_name">
+            <span id="username_error"></span>
+        </div>
+       
+        <div class="user_field">
+            <label for="name">Password</label>
+            <input type="password" name="password" class="user_input" id="user_password">
+            <span id="password_error"></span>
+        </div>
+        <div class="some_link">
+            <a href="{% url 'register_page' %}">create an account</a>
+        </div>
+        <div class="btn">
+            <input type="submit" class="submit_btn" value="Login">
+        </div>
+    </form>
+</div>
