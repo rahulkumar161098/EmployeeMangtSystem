@@ -19,31 +19,32 @@
     </div>
     <div class="col-sm-12 profile_div">
         <label for="">Employee code</label><br>
-        <input type="text" name="e_code">
+        <input type="text" name="e_code" value="{{ detail.emp_code }}">
     </div>
     <div class="col-sm-12 profile_div">
         <label for="">Employee Department</label><br>
-        <input type="text" name="e_dept">
+        <input type="text" name="e_dept" value="{{ detail.emp_dept }}">
     </div>
     <div class="col-sm-6 profile_div">
         <label for="">Employee Designation</label><br>
-        <input type="text" name="e_desg">
+        <input type="text" name="e_desg" value="{{ detail.emp_desg }}">
     </div>
     <div class="col-sm-6 profile_div">
         <label for="">Contact</label><br>
-        <input type="text" name="e_contact">
+        <input type="text" name="e_contact" value="{{ detail.emp_mobile }}">
     </div>
     <div class="col-sm-6 profile_div">
         <label for="">Email id</label><br>
         <input type="email" name="e_email" value="{{ detail.user.email }}">
     </div>
     <div class="col-sm-6 profile_div">
-        <label for="">Joining Date</label><br>
+        <label for="">Joining Date:- <span>[ {{ detail.join_date }} ]</span></label><br>
         <input type="date" name="j_date">
     </div>
     <div class="col-sm-6 profile_div">
-        <label for="">Gender</label><br>
-        <select name="" id="" name="e_gender">
+        <label for="">Gender :-  <span>[ {{ detail.emp_gender }} ]</label><br>
+        <select name="" id="" name="emp_gender">
+            <option value="select_Gender">Select</option>
             <option value="Male">Male</option>
             <option value="female">Female</option>
 

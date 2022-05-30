@@ -25,7 +25,7 @@
         <div class="list-group">
           <a href="{% url 'emp_base' %}" class="list-group-item list-group-item-info {% if request.path == '/emp/' %} active {% endif %}">Dashboard</a>
           <a href="{% url 'user_profile' %}" class="list-group-item list-group-item-info {% if request.path == '/profile/' %} active {% endif %}">Profile</a>
-          <a href="" class="list-group-item list-group-item-info">My Experiance</a>
+          <a href="{% url 'emp_experiance' %}" class="list-group-item list-group-item-info">My Experiance</a>
           <a href="" class="list-group-item list-group-item-info">Edit Experiance</a>
           <a href="" class="list-group-item list-group-item-info">Education</a>
           <a href="" class="list-group-item list-group-item-info">Change Password</a>

@@ -16,6 +16,8 @@ def register(request):
             save_login= User.objects.create_user(first_name= fname, last_name= lname, username=email, password= pwd, email=email)
             save_login.save()
             EmployeeDetails.objects.create(user=save_login)
+            EmployeeEducations.objects.create(user=save_login)
+            EmployeeExperiance.objects.create(user=save_login)
             return redirect('login_page')
         except:
             return render(request, 'register.html')
@@ -50,10 +52,13 @@ def profile(request):
         return redirect ('login_page')
     user= request.user
     detail= EmployeeDetails.objects.get(user=user)
+    print('mobile.............', detail.emp_mobile)
+    print('mobile.............', detail.emp_code)
     print('.................', detail)
-    user_info={
-        'detail': detail
-    }
+    print('date...............',detail.join_date )
+    # user_info={
+    #     'detail': detail
+    # }
 
     if request.method=='POST':
         fname= request.POST['fname']
@@ -62,20 +67,85 @@ def profile(request):
         edept= request.POST['e_dept']
         edesg= request.POST['e_desg']
         econtact= request.POST['e_contact']
+        print('con........', econtact)
         email= request.POST['e_email']
         jdate= request.POST['j_date']
-        # e_gender= request.POST['e_gender']
+        gender= request.POST.get('emp_gender')
+        print('gender  .         ...', gender)
+
+        # set_new_value
+        detail.user.first_name=fname
+        detail.user.last_name= lname
+        detail.user.email= email
+        detail.emp_mobile= econtact
+        detail.emp_code= ecode
+        detail.emp_dept= edept
+        detail.emp_desg= edesg
+        detail.emp_gender= gender
 
         if jdate:
-            EmployeeDetails.join_date=jdate
-
-
+            detail.join_date=jdate
+        print('date...............',detail.join_date )
         try:
-            save_login= User.objects.create_user(first_name= fname, last_name= lname, username=email, email=email)
-            save_login.save()
-            EmployeeDetails.objects.create(user=save_login, email=email, mobile=econtact, emp_code=ecode, emp_dept=edept, join_date=jdate)
-            return redirect('login_page')
+            detail.save()
+            detail.user.save()
+            return redirect('emp_base')
         except:
             return render(request, 'profile.html')
 
-    return render(request, 'profile.html', user_info)
+    return render(request, 'profile.html', locals())
+
+def emp_experiance(request):
+    if not request.user.is_authenticated:
+        return redirect ('login_page')
+    user= request.user
+    experiance= EmployeeExperiance.objects.get(user=user)
+    print('...............', experiance.company1_name)
+    print('current user..............', experiance)
+    
+    return render(request, 'emp_experiance.html', locals())
+
+def edit_experiance(request):
+    if not request.user.is_authenticated:
+        return redirect ('login_page')
+    user= request.user
+    edit_exp= EmployeeExperiance.objects.get(user=user)
+    if request.method== 'POST':
+        c1= request.POST['c_name1']
+        c1_desg= request.POST['c_name1_desg']
+        c1_exp= request.POST['c_name1_exp']
+        c2= request.POST['c_name2']
+        c2_desg= request.POST['c_name2_desg']
+        c2_exp= request.POST['c_name2_exp']
+        c3= request.POST['c_name3']
+        c3_desg= request.POST['c_name3_desg']
+        c3_exp= request.POST['c_name3_exp']
+
+        edit_exp.company1_name= c1
+        edit_exp.company1_desg= c1_desg
+        edit_exp.company1_duration= c1_exp
+        edit_exp.company2_name= c2
+        edit_exp.company2_desg= c2_desg
+        edit_exp.company2_duration= c2_exp
+        edit_exp.company3_name= c3
+        edit_exp.company3_desg= c3_desg
+        edit_exp.company3_duration= c3_exp
+        print(edit_exp.company1_name)
+        print(edit_exp.company2_name)
+        print(edit_exp.company2_name)
+        try:
+            edit_exp.save()
+            return redirect('emp_experiance')
+        except:
+            return render(request, 'edit_experiance.html')
+
+    return render(request, 'edit_experiance.html', locals())
+
+
+# education function
+def education(request):
+    return render(request, 'education.html')
+
+# edit education funcation
+def edit_education(request):
+    return render(request, 'edit_eduaction')

@@ -1,0 +1,60 @@
+{% extends 'emp_base.html' %}
+{% load static %}
+
+
+{% block main %}
+<a href="{% url 'edit_experiance' %}" style="float: right;">Edit Your Experiance</a>
+<h5 class="profile">My Experiance</h5>
+<div class="container">
+    <table class="table">
+        <th>First Company Experiance Details</th>
+        <tr>
+            <td scope="col" style="width: 50%">Company Name</td>
+            <td>{{experiance.company1_name}}</td>
+        </tr>
+        <tr>
+            <td scope="col" style="width: 50%">Company Name</td>
+            <td>{{ experiance.company1_desg }}</td>
+        </tr>
+        <tr>
+            <td scope="col" style="width: 50%">Company Name</td>
+            <td>{{ experiance.company1_duration }}</td>
+        </tr>
+    </table>
+    <table class="table">
+        <thead>
+            <th>Second Company Experiance Details</th>
+        </thead>
+        <tr>
+            <td scope="col" style="width: 50%">Company Name</td>
+            <td>{{experiance.company2_name}}</td>
+        </tr>
+        <tr>
+            <td scope="col" style="width: 50%">Company Name</td>
+            <td>{{ experiance.company2_desg }}</td>
+        </tr>
+        <tr>
+            <td scope="col" style="width: 50%">Company Name</td>
+            <td>{{ experiance.company2_duration }}</td>
+        </tr>
+    </table>
+    <table class="table">
+        <th>Third Company Experiance Details</th>
+        <tr>
+            <td scope="col" style="width: 50%">Company Name</td>
+            <td>{{ experiance.company3_name }}</td>
+        </tr>
+        <tr>
+            <td scope="col" style="width: 50%">Company Name</td>
+            <td>{{ experiance.company3_desg }}</td>
+        </tr>
+        <tr>
+            <td scope="col" style="width: 50%">Company Name</td>
+            <td>{{ experiance.company3_duration }}</td>
+        </tr>
+    </table>
+</div>
+
+
+
+{% endblock %}

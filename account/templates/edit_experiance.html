@@ -1,0 +1,71 @@
+{% extends 'emp_base.html' %}
+{% load static %}
+
+
+{% block main %}
+<h5 class="profile">Edit Experiance</h5>
+<div class="container-fluide">
+    <form action="" method="post">
+        {% csrf_token %}
+        <div>
+            <h5 style="border-bottom: 2px solid teal; width: max-content; padding: 6px 0px; margin-bottom: 15px;">First Company details</h5>
+            <div class="row">
+                <div class="col-sm-4 profile_div">
+                    <label for="">Company Name</label><br>
+                    <input type="text" name="c_name1" value="{{ edit_exp.company1_name }}">
+                </div>
+                <div class="col-sm-4 profile_div">
+                    <label for="">Your Designation</label><br>
+                    <input type="text" name="c_name1_desg" value="{{ edit_exp.company1_desg }}">
+                </div>
+                <div class="col-sm-4 profile_div">
+                    <label for="">Years of Experiane</label><br>
+                    <input type="text" name="c_name1_exp" value="{{ edit_exp.company1_duration }}">
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h5 style="border-bottom: 2px solid teal; width: max-content; padding: 6px 0px; margin-bottom: 15px;">Second Company details</h5>
+            <div class="row">
+                <div class="col-sm-4 profile_div">
+                    <label for="">Company Name</label><br>
+                    <input type="text" name="c_name2" value="{{ edit_exp.company2_name }}">
+                </div>
+                <div class="col-sm-4 profile_div">
+                    <label for="">Your Designation</label><br>
+                    <input type="text" name="c_name2_desg" value="{{ edit_exp.company2_desg }}">
+                </div>
+                <div class="col-sm-4 profile_div">
+                    <label for="">Years of Experiane</label><br>
+                    <input type="text" name="c_name2_exp" value="{{ edit_exp.company2_duration  }}">
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <h5 style="border-bottom: 2px solid teal; width: max-content; padding: 6px 0px; margin-bottom: 15px;">Third Company details</h5>
+            <div class="row">
+                <div class="col-sm-4 profile_div">
+                    <label for="">Company Name</label><br>
+                    <input type="text" name="c_name3" value="{{ edit_exp.company3_name }}">
+                </div>
+                <div class="col-sm-4 profile_div">
+                    <label for="">Your Designation</label><br>
+                    <input type="text" name="c_name3_desg" value="{{ edit_exp.company3_desg }}">
+                </div>
+                <div class="col-sm-4 profile_div">
+                    <label for="">Years of Experiane</label><br>
+                    <input type="text" name="c_name3_exp" value="{{ edit_exp.company3_duration  }}">
+                </div>
+            </div>
+        </div>
+        <div>
+            <input type="submit" value="Submit" style="padding: 8px 30px; background-color: teal; border: none; border-radius: 10px; letter-spacing: 1px; color: white; float: right; margin-top: 18px;">
+        </div>
+    </form>
+</div>
+
+
+
+{% endblock %}
