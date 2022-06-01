@@ -1,0 +1,15 @@
+{% extends 'admin_base.html' %}
+
+{% block main %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card shadow">
+            <div class="card-body p-2">
+                <h6 >Welcome Back To EMS Admin :- <span class="" style="color: teal; font-weight: 600; font-size: 24px; line-height: 30px;">{{ request.user.username|upper }} </span></h6>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

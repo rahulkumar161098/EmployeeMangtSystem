@@ -1,3 +1,4 @@
+from math import atanh
 from django.shortcuts import redirect, render, HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout,authenticate
@@ -144,8 +145,139 @@ def edit_experiance(request):
 
 # education function
 def education(request):
-    return render(request, 'education.html')
+    if not request.user.is_authenticated:
+        return redirect('login_page')
+
+    user= request.user
+    education= EmployeeEducations.objects.get(user=user)
+    return render(request, 'education.html', locals())
 
 # edit education funcation
 def edit_education(request):
-    return render(request, 'edit_eduaction')
+    if not request.user.is_authenticated:
+        return redirect('login_page')
+    user= request.user
+    edit_education= EmployeeEducations.objects.get(user=user)
+
+    if request.method== 'POST':
+        # pg data (Post Graduation )
+        pg_name= request.POST['pg_name']
+        pg_clg= request.POST['pg_college']
+        pg_year= request.POST['pg_year']
+        pg_percent= request.POST['pg_per']
+        # ug data (Under Graduation )
+        ug_name= request.POST['ug_name']
+        ug_clg= request.POST['ug_college']
+        ug_year= request.POST['ug_year']
+        ug_percent= request.POST['ug_per']
+        # SSC data (Senior secondary high school)
+        ssc_name= request.POST['ssc_name']
+        ssc_clg= request.POST['ssc_college']
+        ssc_year= request.POST['ssc_year']
+        ssc_pernt= request.POST['ssc_per']
+        # hc data (High school)
+        hc_clg= request.POST['hc_college']
+        hc_year= request.POST['hc_year']
+        hc_percent= request.POST['hc_per']
+
+
+        edit_education.course_pg= pg_name
+        edit_education.college_name_pg= pg_clg
+        edit_education.pass_year_pg= pg_year
+        edit_education.parcentage_pg= pg_percent
+
+        edit_education.course_ug= ug_name
+        edit_education.college_name_ug= ug_clg
+        edit_education.pass_year_ug= ug_year
+        edit_education.parcentage_ug= ug_percent
+
+        edit_education.course_ssc= ssc_name
+        edit_education.college_name_scc= ssc_clg
+        edit_education.pass_year_ssc= ssc_year
+        edit_experiance.parcentage_ssc= ssc_pernt
+
+        edit_education.college_name_hc= hc_clg
+        edit_education.pass_year_hc= hc_year
+        edit_education.parcentage_hc= hc_percent
+
+        try:
+            edit_education.save()
+            return redirect('education')
+        except:
+            return render('edit_educations')
+
+    return render(request, 'edit_education.html', locals())
+
+# change password
+def change_emp_password(request):
+    if not request.user.is_authenticated:
+        return redirect('login_page')
+    user= request.user
+    if request.method== 'POST':
+        old_pass= request.POST['old_pass']
+        new_pass= request.POST['new_pass']
+        try:
+            if user.check_password(old_pass):
+                user.set_password(new_pass)
+                user.save()
+                return redirect('logout')
+        except:
+            return redirect('change_emp_password')
+
+    return render(request, 'change_password.html')
+
+
+# admin control
+def admin_login(request):
+
+    if request.method== 'POST':
+        a_name= request.POST['admin_name']
+        a_pass= request.POST['admin_password']
+        user= authenticate(username=a_name, password= a_pass)
+        if user.is_staff:
+            login(request,user)
+            return redirect('admin_home_page')
+        else:
+            return render(request, 'admin_login.html')
+
+    return render(request, 'admin_login.html')
+
+def admin_home(request):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+
+    return render(request, 'admin_home.html')
+
+
+def change_admin_pass(request):
+    if not request.user.is_authenticated:
+        return redirect('login_page')
+    user= request.user
+    if request.method== 'POST':
+        old_pass= request.POST['old_pass']
+        new_pass= request.POST['new_pass']
+        try:
+            if user.check_password(old_pass):
+                user.set_password(new_pass)
+                user.save()
+                return redirect('admin_login')
+        except:
+            return redirect('change_emp_password')
+
+    return render(request, 'change_admin_pass.html')
+
+def all_employee(request):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+
+    all_emp= EmployeeDetails.objects.all()
+    return render(request, 'all_employee.html', locals())
+
+def delete_emp(request, pid):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    
+    all_emp= User.objects.get(id=pid)
+    all_emp.delete()
+    return redirect('delete_emp')
+

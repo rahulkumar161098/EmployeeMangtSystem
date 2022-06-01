@@ -1,0 +1,78 @@
+{% extends 'emp_base.html' %}
+{% load static %}
+
+
+{% block main %}
+<h5 class="profile">My Educations</h5>
+<div class="container">
+    <table class="table table-bordered">
+        <tr>
+            <th scope="col" style="width: 35%">Post Graduation Course Name</th>
+            <td>{{education.course_pg}}</td>
+        </tr>
+        <tr>
+            <th scope="col" style="width: 35%">Post Graduation College</th>
+            <td>{{ education.college_name_pg }}</td>
+        </tr>
+        <tr>
+            <th scope="col" style="width: 35%"> Passing Year of PG</th>
+            <td>{{ education.pass_year_pg }}</td>
+        </tr>
+        <tr>
+            <th scope="col" style="width: 35%">Post Graduation Parcentage</th>
+            <td>{{education.parcentage_pg}}</td>
+        </tr>
+
+        <tr>
+            <th scope="col" style="width: 35%">Under Graduation Course Name</th>
+            <td>{{education.course_ug}}</td>
+        </tr>
+        <tr>
+            <th scope="col" style="width: 35%">Under Graduation College</th>
+            <td>{{ education.college_name_ug }}</td>
+        </tr>
+        <tr>
+            <th scope="col" style="width: 35%">Under Graduation Passing Year</th>
+            <td>{{ education.pass_year_ug }}</td>
+        </tr>
+        <tr>
+            <th scope="col" style="width: 35%">Under Graduation Parcentage</th>
+            <td>{{education.parcentage_ug}}</td>
+        </tr>
+        <!-- senior secondary high school -->
+        <tr>
+            <th scope="col" style="width: 35%">SSC Course Name</th>
+            <td>{{education.course_ssc}}</td>
+        </tr>
+        <tr>
+            <th scope="col" style="width: 35%">SSC School/College</th>
+            <td>{{ education.college_name_scc }}</td>
+        </tr>
+        <tr>
+            <th scope="col" style="width: 35%">SSC Passing Year</th>
+            <td>{{ education.pass_year_ssc }}</td>
+        </tr>
+        <tr>
+            <th scope="col" style="width: 35%">SSC Parcentage</th>
+            <td>{{education.parcentage_ssc}}</td>
+        </tr>
+
+
+        <tr>
+            <th scope="col" style="width: 35%">High School School/College</th>
+            <td>{{ education.college_name_hc }}</td>
+        </tr>
+        <tr>
+            <th scope="col" style="width: 35%">High School Passing Year</th>
+            <td>{{ education.pass_year_hc }}</td>
+        </tr>
+        <tr>
+            <th scope="col" style="width: 35%">High School Parcentage</th>
+            <td>{{education.parcentage_hc}}</td>
+        </tr>
+    </table>
+</div>
+
+
+
+{% endblock %}

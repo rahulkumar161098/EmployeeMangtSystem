@@ -21,22 +21,22 @@ class EmployeeDetails(models.Model):
 # education model fo employee
 class EmployeeEducations(models.Model):
     user= models.ForeignKey(User,on_delete=models.CASCADE)
-    # pg
+    # pg (Post Graduation )
     course_pg= models.CharField(max_length=200, null=True)
     college_name_pg =models.CharField(max_length=200, null=True)
     pass_year_pg= models.CharField(max_length=60, null=True)
     parcentage_pg= models.CharField(max_length=50, null=True)
-    # ug
+    # ug (Under Graduation )
     course_ug= models.CharField(max_length=200, null=True)
     college_name_ug =models.CharField(max_length=200, null=True)
     pass_year_ug= models.CharField(max_length=60, null=True)
     parcentage_ug= models.CharField(max_length=50, null=True)
-    # ssc
+    # ssc(Senior secondary high school)
     course_ssc= models.CharField(max_length=200, null=True)
     college_name_scc =models.CharField(max_length=200, null=True)
     pass_year_ssc= models.CharField(max_length=60, null=True)
     parcentage_ssc= models.CharField(max_length=50, null=True)
-    # hc
+    # hc (High school)
     course_hc= models.CharField(max_length=200, null=True)
     college_name_hc =models.CharField(max_length=200, null=True)
     pass_year_hc= models.CharField(max_length=60, null=True)

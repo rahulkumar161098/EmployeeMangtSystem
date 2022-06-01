@@ -1,0 +1,99 @@
+{% extends 'emp_base.html' %}
+{% load static %}
+
+
+{% block main %}
+<h5 class="profile">Edit Your Educations</h5>
+<div class="container">
+    <table class="table table-bordered">
+        <form action="" method="post">
+            {% csrf_token %}
+            <tr>
+                <th scope="col" style="width: 35%">Post Graduation Course Name</th>
+                <td><input type="text" name="pg_name" value="{{ edit_education.course_pg }}"
+                        style="width: 100%; padding: 5px 10px; border-radius: 5px;"></td>
+            </tr>
+            <tr>
+                <th scope="col" style="width: 35%">Post Graduation College</th>
+                <td><input type="text" name="pg_college" value="{{ edit_education.college_name_pg }}"
+                        style="width: 100%; padding: 5px 10px; border-radius: 5px;"></td>
+            </tr>
+            <tr>
+                <th scope="col" style="width: 35%"> Passing Year of PG</th>
+                <td><input type="text" name="pg_year" value="{{ edit_education.pass_year_pg }}"
+                        style="width: 100%; padding: 5px 10px; border-radius: 5px;"></td>
+            </tr>
+            <tr>
+                <th scope="col" style="width: 35%">Post Graduation Parcentage</th>
+                <td><input type="text" name="pg_per" value="{{edit_education.parcentage_pg}} "
+                        style="width: 100%; padding: 5px 10px; border-radius: 5px;"></td>
+            </tr>
+
+            <tr>
+                <th scope="col" style="width: 35%">Under Graduation Course Name</th>
+                <td><input type="text" name="ug_name" value="{{edit_education.course_ug}}"
+                        style="width: 100%; padding: 5px 10px; border-radius: 5px;"></td>
+            </tr>
+            <tr>
+                <th scope="col" style="width: 35%">Under Graduation College</th>
+                <td><input type="text" name="ug_college" value="{{ edit_education.college_name_ug }}"
+                        style="width: 100%; padding: 5px 10px; border-radius: 5px;"></td>
+            </tr>
+            <tr>
+                <th scope="col" style="width: 35%">Under Graduation Passing Year</th>
+                <td><input type="text" name="ug_year" value="{{ edit_education.pass_year_ug }}"
+                        style="width: 100%; padding: 5px 10px; border-radius: 5px;"></td>
+            </tr>
+            <tr>
+                <th scope="col" style="width: 35%">Under Graduation Parcentage</th>
+                <td><input type="text" name="ug_per" value="{{ edit_education.parcentage_ug }}"
+                        style="width: 100%; padding: 5px 10px; border-radius: 5px;"></td>
+            </tr>
+            <!-- senior secondary high school -->
+            <tr>
+                <th scope="col" style="width: 35%">SSC Course Name</th>
+                <td><input type="text" name="ssc_name" value="{{edit_education.course_ssc}}"
+                        style="width: 100%; padding: 5px 10px; border-radius: 5px;"></td>
+            </tr>
+            <tr>
+                <th scope="col" style="width: 35%">SSC School/College</th>
+                <td><input type="text" name="ssc_college" value="{{ edit_education.college_name_scc }}"
+                        style="width: 100%; padding: 5px 10px; border-radius: 5px;"></td>
+            </tr>
+            <tr>
+                <th scope="col" style="width: 35%">SSC Passing Year</th>
+                <td><input type="text" name="ssc_year" value="{{ edit_education.pass_year_ssc }}"
+                        style="width: 100%; padding: 5px 10px; border-radius: 5px;"></td>
+            </tr>
+            <tr>
+                <th scope="col" style="width: 35%">SSC Parcentage</th>
+                <td><input type="text" name="ssc_per" value="{{ edit_education.parcentage_ssc }}"
+                        style="width: 100%; padding: 5px 10px; border-radius: 5px;"></td>
+            </tr>
+
+
+            <tr>
+                <th scope="col" style="width: 35%">High School School/College</th>
+                <td><input type="text" name="hc_college" value="{{ edit_education.college_name_hc }}"
+                        style="width: 100%; padding: 5px 10px; border-radius: 5px;"></td>
+            </tr>
+            <tr>
+                <th scope="col" style="width: 35%">High School Passing Year</th>
+                <td><input type="text" name="hc_year" value="{{ edit_education.pass_year_hc }}"
+                        style="width: 100%; padding: 5px 10px; border-radius: 5px;"></td>
+            </tr>
+            <tr>
+                <th scope="col" style="width: 35%">High School Parcentage</th>
+                <td><input type="text" name="hc_per" value="{{edit_education.parcentage_hc}}"
+                        style="width: 100%; padding: 5px 10px; border-radius: 5px;"></td>
+            </tr>
+            <input type="submit" value="Save"
+                style="position: absolute; right: 40px; bottom: 0px; background-color: teal; padding:2px 20px; border: none; border-radius: 5px; color: white;">
+</div>
+</form>
+</table>
+</div>
+
+
+
+{% endblock %}

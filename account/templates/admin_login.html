@@ -1,0 +1,60 @@
+{% load static %}
+
+<!-- {% include 'header.html' %} -->
+<link rel="stylesheet" href="../static/css/login.css">
+<link rel="stylesheet" href="../static/css/admin.css">
+
+<div class="adminback" style="background-image: url(../static/media/pexels-evie-shaffer-4004374.jpg);">
+    <div class="contain"style="height: max-content; margin-top: 140px;">
+        <form action="" method="post" onsubmit="return onSubmitForm()">
+            {% csrf_token %}
+            <h3>Admin Login</h3>
+            <div class="user_field">
+                <label for="name" style="color: white;">User name</label>
+                <input type="text" name="admin_name" class="user_input" id="user_name" style="margin: 0px 0px 8px 0px;">
+                <span id="username_error"></span>
+            </div>
+
+            <div class="user_field">
+                <label for="name" style="color: white;">Password</label>
+                <input type="password" name="admin_password" class="user_input" id="user_password" style="margin: 0px 0px 8px 0px;">
+                <span id="password_error"></span>
+            </div>
+            <!-- <div class="some_link" style="margin-top: 10px;">
+            <a href="{% url 'register_page' %}">create an account</a>
+        </div> -->
+            <div class="btn">
+                <input type="submit" class="submit_btn" value="Login">
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    let u_name = document.getElementById('user_name');
+    let u_pass = document.getElementById('user_password')
+    flag = 1
+    function onSubmitForm() {
+        if (u_name.value == '') {
+            document.getElementById('username_error').innerHTML = 'Field is required*';
+            flag = 0
+            // window.URL('login/')
+        } else {
+            document.getElementById('username_error').innerHTML = '';
+            flag = 1
+        };
+        if (u_pass.value == '') {
+            document.getElementById('password_error').innerHTML = 'Field is required*';
+            flag = 0
+        } else {
+            document.getElementById('username_error').innerHTML = '';
+            flag = 1
+        };
+
+        if (flag) {
+            return true
+        } else {
+            return false
+        }
+    }
+</script>

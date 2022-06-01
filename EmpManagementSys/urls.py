@@ -29,5 +29,12 @@ urlpatterns = [
     path('emp_experiance/', emp_experiance, name='emp_experiance'),
     path('edit_experiance/', edit_experiance, name="edit_experiance"),
     path('education/', education, name="education"),
-    path('edit_education', edit_education, name="edit_education")
+    path('edit_education/', edit_education, name="edit_educations"),
+    path('change_password/', change_emp_password, name="change_emp_password"),
+    # admin url
+    path('adminc/', admin_login, name="admin_login"),
+    path('admin_home/', admin_home, name="admin_home_page"),
+    path('change_admin_password/', change_admin_pass, name="change_admin_pass"),
+    path('all_employee/', all_employee, name="all_employee"),
+    path('delete_emp/<int:pid>', delete_emp, name="delete_emp")
 ]

@@ -1,10 +1,10 @@
 .contain{
     width: 350px;
-    height: 450px;
+    height: max-content;
     padding: 15px 15px;
     border: 2px solid rgba(1, 75, 75, .6);
     margin: 0 auto;
-    margin-top: 60px;
+    margin-top: 30px;
     border-radius: 10px;
     box-shadow: black(10px);
     /* text-align: center; */
@@ -27,7 +27,7 @@ label{
     margin: 0 auto;
     /* border: 1px solid teal; */
     /* height: 30px; */
-    margin: 10px 0px;
+    margin: 8px 0px;
 }
 .user_input{
     width: 93%;
@@ -61,4 +61,6 @@ label{
 span{
     color: red;
     font-size: 13px;
+    position: relative;
+    top: -10px;
 }

@@ -15,3 +15,18 @@
 .collapsibleNavbar{
     color: white !important;
 }
+.change_color{
+    background-color: white !important;
+}
+button{
+    background-color: white !important;
+}
+span{
+    background-color: teal !important;
+    height: 5px !important;
+    width: 20px !important;
+    border-radius: 10px !important;
+}
+.middle_bar{
+    margin: 3px 0px;
+}
