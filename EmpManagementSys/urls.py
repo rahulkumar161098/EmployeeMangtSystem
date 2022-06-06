@@ -36,5 +36,6 @@ urlpatterns = [
     path('admin_home/', admin_home, name="admin_home_page"),
     path('change_admin_password/', change_admin_pass, name="change_admin_pass"),
     path('all_employee/', all_employee, name="all_employee"),
-    path('delete_emp/<int:pid>', delete_emp, name="delete_emp")
+    path('delete_emp/<int:pid>', delete_emp, name="delete_emp"),
+    path('emp_all_details/<int:id>', emp_all_details, name="emp_all_details")
 ]

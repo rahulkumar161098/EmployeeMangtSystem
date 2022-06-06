@@ -4,11 +4,11 @@ from django.contrib.auth.models import Group
 
 # Register your models here.
 class EmployeeViews(admin.ModelAdmin):
-    list_display=('user', 'emp_code', 'emp_dept', 'emp_dept')
+    list_display=('id','user', 'emp_code', 'emp_dept', 'emp_dept')
 admin.site.register(EmployeeDetails, EmployeeViews)
 
 class EmployeeEducationView(admin.ModelAdmin):
-    list_display=('user','course_pg')
+    list_display=('id','user','course_pg')
 admin.site.register(EmployeeEducations,EmployeeEducationView)
 
 

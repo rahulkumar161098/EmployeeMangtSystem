@@ -25,7 +25,7 @@
                         {% for emp in all_emp %}
                       <tr>
                         <td>{{ forloop.counter }}</td>
-                        <td>{{ emp.emp_code }}</td>
+                        <td><a href="{% url 'emp_all_details' emp.id %} "> {{ emp.emp_code }}</a></td>
                         <td>{{ emp.user.first_name }}</td>
                         <td>{{ emp.user.last_name }}</td>
                         <td>{{ emp.user.email }}</td>

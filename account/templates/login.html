@@ -2,6 +2,17 @@
 
 {% include 'header.html' %}
 <link rel="stylesheet" href="../static/css/login.css">
+{% if messages %}
+<div class="alert alert-warning" role="alert">
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+</div>
+{% endif %}
+
+<!-- <div class="alert alert-info" role="alert">
+    This is a info alert—check it out!
+  </div> -->
 
 <div class="contain" style="height: max-content;">
     <form action="" method="post" onsubmit="return onSubmitForm()">

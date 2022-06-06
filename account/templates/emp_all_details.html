@@ -1,0 +1,223 @@
+{% extends 'admin_base.html' %}
+
+{% block main %}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="card shadow">
+            <div class="card-body p-2">
+                <h6 style="color: teal; font-size: 24px;">Employee Details :-</h6>
+
+                <table class="table" <tbody>
+                    <tr>
+                        <th scope="row">Employee Code</th>
+                        <td>{{ emp_all_detail.emp_code }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">First Name</th>
+                        <td>{{ emp_all_detail.user.first_name }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Last Name</th>
+                        <td>{{ emp_all_detail.user.last_name }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Email</th>
+                        <td>{{ emp_all_detail.user.email }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Mobile no.</th>
+                        <td>{{ emp_all_detail.emp_mobile }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Employee Department</th>
+                        <td>{{ emp_all_detail.emp_dept }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Employee Designation</th>
+                        <td>{{ emp_all_detail.emp_desg }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Joining Date</th>
+                        <td>{{ emp_all_detail.join_date }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">Gender</th>
+                        <td>{{ emp_all_detail.emp_gender }}</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Education details -->
+
+<div class="row my-5">
+    <div class="col-sm-12">
+        <div class="card shadow">
+            <div class="card-body p-2">
+                <h6 style="color: teal; font-size: 24px;">Employee Educational Details :-</h6>
+
+                <table class="table table-bordered">
+                    <h4 class="my-4" style="color: rgb(146, 146, 146);">Post Graduation</h4>
+                    <tbody>
+                        <tr>
+                            <th scope="row">PG Course</th>
+                            <td>{{ edu_details.course_pg }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">PG College Name</th>
+                            <td>{{ edu_details.college_name_pg }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">PG Passing Year</th>
+                            <td>{{ edu_details.pass_year_pg }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">PG Percentage</th>
+                            <td>{{ edu_details.parcentage_pg }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered">
+                    <h4 class="my-4" style="color: rgb(146, 146, 146);">Graduation</h4>
+                    <tbody>
+                        <h4></h4>
+                        <tr>
+                            <th scope="row">UG Course</th>
+                            <td>{{ edu_details.course_ug }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">UG College Name</th>
+                            <td>{{ edu_details.college_name_ug }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">UG Passing Year</th>
+                            <td>{{ edu_details.pass_year_ug }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">UG Percentage</th>
+                            <td>{{ edu_details.parcentage_ug }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered">
+                    <h4 class="my-4" style="color: rgb(146, 146, 146);">Senior Secondary High School</h4>
+                    <tbody>
+                        <tr>
+                            <th scope="row">SSC Course</th>
+                            <td>{{ edu_details.course_ssc }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">SSC School/College Name</th>
+                            <td>{{ edu_details.college_name_scc }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">SSC Passing Year</th>
+                            <td>{{ edu_details.pass_year_ssc }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">SSC Percentage</th>
+                            <td>{{ edu_details.parcentage_ssc }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table class="table table-bordered">
+                    <h4 class="my-4" style="color: rgb(146, 146, 146);">High School</h4>
+                    <tbody>
+                        <tr>
+                            <th scope="row">HS Course</th>
+                            <td>{{ edu_details.college_name_hc }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">HS School/College Name</th>
+                            <td>{{ edu_details.pass_year_hc }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">HS Passing Year</th>
+                            <td>{{ edu_details.parcentage_hc }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">HS Percentage</th>
+                            <td>{{ edu_details.parcentage_ssc }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Experiance -->
+
+<div class="row my-5">
+    <div class="col-sm-12">
+        <div class="card shadow">
+            <div class="card-body p-2">
+                <h6 style="color: teal; font-size: 24px;">Experiance Details :-</h6>
+
+                <table class="table table-bordered">
+                    <h4 class="my-4" style="color: rgb(146, 146, 146);">Company 1</h4>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Company Name</th>
+                            <td>{{ emp_exp.company1_name }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Your Designation </th>
+                            <td>{{ emp_exp.company1_desg }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">How Long Work with</th>
+                            <td>{{ emp_exp.company1_duration }}</td>
+                        </tr>
+                    </tbody>
+                </table>           
+                
+                <table class="table table-bordered">
+                    <h4 class="my-4" style="color: rgb(146, 146, 146);">Company 2</h4>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Company Name</th>
+                            <td>{{ emp_exp.company2_duration }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Your Designation </th>
+                            <td>{{ emp_exp.company2_duration }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">How Long Work with</th>
+                            <td>{{ emp_exp.company2_duration }}</td>
+                        </tr>
+                    </tbody>
+                </table>           
+
+                <table class="table table-bordered">
+                    <h4 class="my-4" style="color: rgb(146, 146, 146);">Company 3</h4>
+                    <tbody>
+                        <tr>
+                            <th scope="row">Company Name</th>
+                            <td>{{ emp_exp.company3_duration }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Your Designation </th>
+                            <td>{{ emp_exp.company3_duration }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">How Long Work with</th>
+                            <td>{{ emp_exp.company3_duration }}</td>
+                        </tr>
+                    </tbody>
+                </table>           
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

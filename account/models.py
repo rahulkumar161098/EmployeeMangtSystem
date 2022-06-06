@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class EmployeeDetails(models.Model):
-    user= models.ForeignKey(User,on_delete=models.CASCADE)
+    user= models.ForeignKey(User, on_delete=models.CASCADE)
     # email= models.CharField(max_length=50, null=True)
     emp_code= models.CharField(max_length=60, null=True)
     emp_dept =models.CharField(max_length=60, null=True)
@@ -15,12 +15,12 @@ class EmployeeDetails(models.Model):
     emp_gender= models.CharField(max_length=10, null=True)
 
     # def __str__(self):
-    #     return self.emp_code
+    #     return self.user
 
 
 # education model fo employee
 class EmployeeEducations(models.Model):
-    user= models.ForeignKey(User,on_delete=models.CASCADE)
+    user= models.ForeignKey(User, on_delete=models.CASCADE)
     # pg (Post Graduation )
     course_pg= models.CharField(max_length=200, null=True)
     college_name_pg =models.CharField(max_length=200, null=True)
@@ -42,13 +42,13 @@ class EmployeeEducations(models.Model):
     pass_year_hc= models.CharField(max_length=60, null=True)
     parcentage_hc= models.CharField(max_length=50, null=True)
 
-    def __str__(self):
-        return  self.user.username
+    # def __str__(self):
+    #     return  self.user
 
 
 # employee experiance
 class EmployeeExperiance(models.Model):
-    user= models.ForeignKey(User,on_delete=models.CASCADE)
+    user= models.ForeignKey(User ,on_delete=models.CASCADE)
     # company 1
     company1_name= models.CharField(max_length=200, null=True)
     company1_desg =models.CharField(max_length=200, null=True)
@@ -62,5 +62,5 @@ class EmployeeExperiance(models.Model):
     company3_desg =models.CharField(max_length=200, null=True)
     company3_duration= models.CharField(max_length=60, null=True)
 
-    def __str__(self):
-        return  self.user.username
+    # def __str__(self):
+    #     return  self.user

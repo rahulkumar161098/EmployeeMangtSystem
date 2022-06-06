@@ -3,18 +3,26 @@
 {% include 'header.html' %}
 <link rel="stylesheet" href="../static/css/register.css">
 
+{% if messages %}
+<div class="alert alert-warning" role="alert">
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+</div>
+{% endif %}
+
 <div class="contain">
     <form action="" method="post" onsubmit="return onSubmitForm()">
         {% csrf_token %}
         <h3>Sign Up</h3>
         <div class="user_field">
             <label for="name">First name</label>
-            <input type="text" name="fname" class="user_input" id="f_name">
+            <input type="text" name="fname" value="{{ name }}" class="user_input" id="f_name">
             <span id="fname_error"></span>
         </div>
         <div class="user_field">
             <label for="name">Last name</label>
-            <input type="text" name="lname" class="user_input" id="l_name">
+            <input type="text" name="lname" value="{{ subtitle }}" class="user_input" id="l_name">
             <span id="lname_error"></span>
         </div>
         <!-- <div class="user_field">

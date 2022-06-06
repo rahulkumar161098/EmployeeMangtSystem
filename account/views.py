@@ -1,8 +1,9 @@
-from math import atanh
 from django.shortcuts import redirect, render, HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import login, logout,authenticate
 from account.models import *
+from django.contrib import messages
+
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -13,6 +14,13 @@ def register(request):
         lname= request.POST['lname']
         email= request.POST['email']
         pwd= request.POST['password']
+        data={
+            'name': fname,
+            'subtitle': lname
+        }
+        if User.objects.filter(username=email):
+            messages.info(request, 'User already exist')
+            return render(request, 'register.html', data)
         try:
             save_login= User.objects.create_user(first_name= fname, last_name= lname, username=email, password= pwd, email=email)
             save_login.save()
@@ -33,7 +41,8 @@ def user_login(request):
             login(request, user)
             return redirect('emp_base')
         else:
-            return HttpResponse(' not login')
+            messages.info(request, 'Invalid username/password')
+            return render(request, 'login.html', locals())
 
     return render(request, 'login.html')
 
@@ -53,10 +62,8 @@ def profile(request):
         return redirect ('login_page')
     user= request.user
     detail= EmployeeDetails.objects.get(user=user)
-    print('mobile.............', detail.emp_mobile)
-    print('mobile.............', detail.emp_code)
-    print('.................', detail)
-    print('date...............',detail.join_date )
+    # print('.................', detail)
+    # print('date...............',detail.join_date )
     # user_info={
     #     'detail': detail
     # }
@@ -67,22 +74,21 @@ def profile(request):
         ecode= request.POST['e_code']
         edept= request.POST['e_dept']
         edesg= request.POST['e_desg']
-        econtact= request.POST['e_contact']
-        print('con........', econtact)
+        mob= request.POST['e_contact']
         email= request.POST['e_email']
         jdate= request.POST['j_date']
-        gender= request.POST.get('emp_gender')
-        print('gender  .         ...', gender)
+        gen= request.POST['dropdown']
+        print('gender  .         ...', gen)
 
         # set_new_value
         detail.user.first_name=fname
         detail.user.last_name= lname
         detail.user.email= email
-        detail.emp_mobile= econtact
+        detail.emp_mobile= mob
         detail.emp_code= ecode
         detail.emp_dept= edept
         detail.emp_desg= edesg
-        detail.emp_gender= gender
+        detail.emp_gender= gen
 
         if jdate:
             detail.join_date=jdate
@@ -227,7 +233,8 @@ def change_emp_password(request):
     return render(request, 'change_password.html')
 
 
-# admin control
+# admin control .......................................................................
+
 def admin_login(request):
 
     if request.method== 'POST':
@@ -238,6 +245,7 @@ def admin_login(request):
             login(request,user)
             return redirect('admin_home_page')
         else:
+            messages.info(request, 'Invalid creadentials')
             return render(request, 'admin_login.html')
 
     return render(request, 'admin_login.html')
@@ -280,4 +288,24 @@ def delete_emp(request, pid):
     all_emp= User.objects.get(id=pid)
     all_emp.delete()
     return redirect('delete_emp')
+
+def emp_all_details(request, id):
+    if not request.user.is_authenticated:
+        return redirect('admin_login')
+    user= request.user
+    # print('user................', user)
+
+    emp_all_detail= EmployeeDetails.objects.get(id= id)
+
+    emp_edu= emp_all_detail.user
+
+    # getting emp eduaction by username
+    edu_details= EmployeeEducations.objects.filter(user=emp_edu).get()
+    # print('emp educations...............', edu_details)
+
+    # getting emp experiance by username
+    emp_exp= EmployeeExperiance.objects.filter(user= emp_edu).get()
+    # print('emp experiance.............', emp_exp)
+
+    return render(request, 'emp_all_details.html', locals())
 

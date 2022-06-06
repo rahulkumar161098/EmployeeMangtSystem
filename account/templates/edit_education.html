@@ -4,7 +4,7 @@
 
 {% block main %}
 <h5 class="profile">Edit Your Educations</h5>
-<div class="container">
+<div class="container" style="position: relative;">
     <table class="table table-bordered">
         <form action="" method="post">
             {% csrf_token %}
@@ -88,10 +88,9 @@
                         style="width: 100%; padding: 5px 10px; border-radius: 5px;"></td>
             </tr>
             <input type="submit" value="Save"
-                style="position: absolute; right: 40px; bottom: 0px; background-color: teal; padding:2px 20px; border: none; border-radius: 5px; color: white;">
-</div>
-</form>
-</table>
+                style="position: absolute; right: 20px; top: 101%; background-color: teal; padding:2px 20px; border: none; border-radius: 5px; color: white; ">
+        </form>
+    </table>
 </div>
 
 
